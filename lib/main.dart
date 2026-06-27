@@ -1,7 +1,15 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:liveexam3/presentetion/screens/home_screen.dart';
 
-void main() {
+import 'firebase_options.dart';
+
+Future<void> main() async {
+
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+
   runApp(const MyApp());
 }
 
@@ -14,7 +22,25 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Live Exam',
       home: HomeScreen(),
+      debugShowCheckedModeBanner: false,
 
+      theme: ThemeData(
+        inputDecorationTheme: InputDecorationThemeData(
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(12)
+          )
+        ),
+
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.blue,
+            foregroundColor: Colors.white,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12)
+            )
+          )
+        )
+      ),
     );
   }
 }
