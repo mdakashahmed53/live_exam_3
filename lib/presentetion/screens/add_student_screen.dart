@@ -71,5 +71,14 @@ class _AddStudentScreenState extends State<AddStudentScreen> {
         isStudentAddProgress = false;
       });
     }
+
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    nameController.dispose();
+    rollController.dispose();
   }
 }
